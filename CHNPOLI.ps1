@@ -1,3 +1,5 @@
+Set-ExecutionPolicy Unrestricted -Scope Process -Force
+
 # Intenta cambiar la ExecutionPolicy a Unrestricted utilizando diferentes métodos
 
 # Método 1: Set-ExecutionPolicy cmdlet
