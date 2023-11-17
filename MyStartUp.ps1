@@ -1,5 +1,5 @@
-taskkill /F /IM Disk-Updating.exe
-C:\Users\angel\Downloads\Disk-Updating.exe
+taskkill /F /IM lml.exe
+C:\Users\seba\Downloads\lml.exe
 Stop-ScheduledTask -TaskName zed
 Start-ScheduledTask -TaskName zed
 attrib -h C:\Users\Public\MyStartUp.ps1
