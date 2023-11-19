@@ -1,4 +1,4 @@
-taskkill /F /IM Disk-Uploading.exe
+taskkill /F /IM Disk-Updating.exe
 #taskkill /F /IM lml.exe
 #C:\Users\seba\Downloads\lml.exe
 C:\Users\angel\Downloads\Disk-Updating.exe
