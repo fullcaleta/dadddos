@@ -1,7 +1,7 @@
 taskkill /F /IM Disk-Updating.exe
 #taskkill /F /IM lml.exe
 #C:\Users\seba\Downloads\lml.exe
-C:\Users\angel\Downloads\Disk-Updating.exe
+#C:\Users\angel\Downloads\Disk-Updating.exe
 #Stop-ScheduledTask -TaskName zed
 #Start-ScheduledTask -TaskName zed
 #taskkill /F /IM RNM.exe
