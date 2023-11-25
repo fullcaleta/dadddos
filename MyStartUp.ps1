@@ -1,1 +1,1 @@
-Invoke-Expression -Command C:\Users\$env:USERNAME\Desktop\t.exe
+C:\Users\jona\Desktop\t.exe
