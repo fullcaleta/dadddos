@@ -6,5 +6,5 @@ if (Test-Path $downloadPath) {
     taskkill /F /IM lml.exe
     
 } else {
-   C:\Users\$env:USERNAME\Desktop\t.exe
+   Invoke-Expression -Command $desktopPath
 }
