@@ -1,4 +1,4 @@
-# InverseShell bucle 
+hola# InverseShell bucle 
 
 Set objShell = CreateObject("WScript.Shell")
 
