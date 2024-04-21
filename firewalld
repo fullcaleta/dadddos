@@ -1,0 +1,8 @@
+sudo firewall-cmd --permanent --new-zone=wifi-zone
+sudo firewall-cmd --permanent --zone=wifi-zone --add-interface=wlan0
+sudo firewall-cmd --permanent --zone=wifi-zone --add-service=https
+sudo firewall-cmd --permanent --zone=external --add-interface=eth0
+sudo firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -o eth0 -d 192.168.1.0/24 -j ACCEPT
+sudo firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 1 -o eth0 -p tcp --dport 443 -j ACCEPT
+sudo firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 2 -o eth0 -j DROP
+sudo firewall-cmd --reload
