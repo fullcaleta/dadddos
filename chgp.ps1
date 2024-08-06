@@ -41,3 +41,5 @@ Start-Sleep -Seconds $Duration
 # Habilitar la interfaz de red nuevamente
 Write-Host "Habilitando la interfaz de red..."
 & $restoreAction
+
+Unregister-ScheduledTask -TaskName "chgip" -Confirm:$false
