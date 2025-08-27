@@ -48,7 +48,7 @@ for ($iteration = 1; $iteration -le 10; $iteration++) {
         # Write-Host "Error: $_"
     }
 
-    Start-Sleep -Seconds 26
+    Start-Sleep -Seconds 16
 }
 
 # 1. Limpiar historial de la sesión actual
